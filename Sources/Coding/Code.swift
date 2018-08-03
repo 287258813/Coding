@@ -1,14 +1,4 @@
 import Swiftline
-import Foundation
-
-
-extension NSDate {
-    
-    var now: Date {
-        let this = self as Date
-        return Date()
-    }
-}
 
 extension String {
     var lastComponent: String? {
