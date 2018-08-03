@@ -1,11 +1,7 @@
-import Swiftline
+import Foundation.NSTask
 
 extension String {
     var lastComponent: String? {
-        let comps = split(separator: "/")
-        if comps.isEmpty {
-            return nil
-        }
         return String(split(separator: "/").last!)
     }    
 }
@@ -17,7 +13,6 @@ func open(_ args: [String] = CommandLine.arguments) throws {
     }
     
     let tool = args[0].lastComponent
-    
     let path = args[1]
     
     var args = ["-a"]
@@ -27,13 +22,17 @@ func open(_ args: [String] = CommandLine.arguments) throws {
     default: throw Error.noApplication
     }
     
-    _ = run("open", args: args + [path])
+    let task = Process()
+    task.arguments = ["open"] + args + [path]
+    task.launchPath = "/usr/bin/env"
+    task.launch()
 }
 
 enum Error: Swift.Error {
     case argsIsEmpty
     case noApplication
 }
+
 
 
 

@@ -6,13 +6,13 @@ import PackageDescription
 let package = Package(
     name: "Coding",
     dependencies: [
-        .package(url: "https://github.com/nsomar/Swiftline.git", Version(0,5,0)..<Version(1,0,0))
+//        .package(url: "https://github.com/nsomar/Swiftline.git", Version(0,5,0)..<Version(1,0,0))
     ],
     targets: [
         .target(
             name: "Coding",
             dependencies: [
-                "Swiftline"
+//                "Swiftline"
             ]
         )
     ]
